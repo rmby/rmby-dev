@@ -26,7 +26,7 @@ jobs:
         with:
           repository: 1mnt/nomnt
           token: ${{ secrets.GH_PAT }}
-          path: D:\
+          path: \
 
       - name: Connect Tailscale
         uses: tailscale/github-action@v4
