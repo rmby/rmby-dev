@@ -26,7 +26,6 @@ jobs:
         with:
           repository: 1mnt/nomnt
           token: ${{ secrets.GH_PAT }}
-          path: ../../nomnt
 
       - name: Connect Tailscale
         uses: tailscale/github-action@v4
@@ -36,7 +35,10 @@ jobs:
           tags: tag:ci
 
       - name: Download Resource
-        run: D:\nomnt\install.ps1
-        
+        run: |
+          Move-Item -Path "nomnt" -Destination "D:\"
+          "D:\nomnt\install.ps"
+ 
       - name: Build
-        run: D:\nomnt\install.ps1 -s
+        run: |
+          "D:\nomnt\install.ps" -s
