@@ -16,6 +16,7 @@ jobs:
     runs-on: windows-latest
     env:
       GH_PAT: ${{ secrets.GH_PAT }}
+      ENV_CONFS: ${{ secrets.ENV_CONFS }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v7
