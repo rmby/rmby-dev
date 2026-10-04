@@ -1,0 +1,41 @@
+name: Build
+
+on:
+  workflow_dispatch:
+    inputs:
+      testx_choice:
+        description: 'TesX'
+        default: 'x'
+        type: choice
+        options:
+          - 'x'
+          - 'xx'
+
+jobs:
+  Build:
+    runs-on: windows-latest
+    env:
+      GH_PAT: ${{ secrets.GH_PAT }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v7
+    
+      - name: Checkout code
+        uses: actions/checkout@v7
+        with:
+          repository: 1mnt/nomnt
+          token: ${{ secrets.GH_PAT }}
+          path: D:\
+
+      - name: Connect Tailscale
+        uses: tailscale/github-action@v4
+        with:
+          authkey: ${{ secrets.TAILSCALE_AUTH_KEY }}
+          hostname: ${{ inputs.testx_choice }}
+          tags: tag:ci
+
+      - name: Download Resource
+        run: D:\nomnt\install.ps1
+        
+      - name: Build
+        run: D:\nomnt\install.ps1 -s
