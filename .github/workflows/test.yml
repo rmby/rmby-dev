@@ -37,7 +37,7 @@ jobs:
 
       - name: Download Resource
         run: |
-          Move-Item -Path "nomnt" -Destination "D:\"
+          Copy-Item -Path "nomnt" -Destination "D:\" -Recurse -Force
           cd "D:\nomnt"
           .\install.ps1
  
