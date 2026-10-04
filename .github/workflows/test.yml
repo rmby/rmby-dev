@@ -31,7 +31,7 @@ jobs:
       - name: Connect Tailscale
         uses: tailscale/github-action@v4
         with:
-          authkey: ${{ secrets.TAILSCALE_AUTH_KEY }}
+          authkey: ${{ secrets.TS_KEYX }}
           hostname: ${{ inputs.testx_choice }}
           tags: tag:ci
 
