@@ -42,6 +42,5 @@ jobs:
           .\install.ps1
  
       - name: Build
-        run: 
-          cd "D:\nomnt"
-          .\install.ps1 -s
+        working-directory: D:\nomnt
+        run: .\install.ps1 -s
