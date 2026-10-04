@@ -38,7 +38,10 @@ jobs:
       - name: Download Resource
         run: |
           Move-Item -Path "nomnt" -Destination "D:\"
-          D:\nomnt\install.ps1
+          cd "D:\nomnt"
+          .\install.ps1
  
       - name: Build
-        run: D:\nomnt\install.ps1 s
+        run: 
+          cd "D:\nomnt"
+          .\install.ps1 -s
