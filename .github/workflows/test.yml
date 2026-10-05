@@ -39,7 +39,7 @@ jobs:
           preRelease: true
           fileName: '*part*'
           out-file-path: backups
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GH_PAT_EP }}
 
       - name: Setup
         run: .\install.ps1
