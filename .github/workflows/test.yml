@@ -33,13 +33,13 @@ jobs:
           tags: tag:ci
 
       - name: Download Resource
-        uses: robinraju/release-downloader@v1
+        uses: robinraju/release-downloader@v1.13
         with:
           repository: rmby/aosp-dev
           latest: true
           fileName: '*part*'
           out-file-path: backups
-          token: ${{ secrets.GH_PAT_EP }}
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup
         run: .\install.ps1
