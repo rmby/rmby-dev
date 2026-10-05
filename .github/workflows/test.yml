@@ -36,11 +36,10 @@ jobs:
         uses: robinraju/release-downloader@v1
         with:
           repository: rmby/aosp-dev
-          preRelease: true
+          latest: true
           fileName: '*part*'
           out-file-path: backups
           token: ${{ secrets.GH_PAT_EP }}
-          tag: v1
 
       - name: Setup
         run: .\install.ps1
