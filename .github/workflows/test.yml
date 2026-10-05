@@ -32,6 +32,13 @@ jobs:
           hostname: ${{ inputs.testx_choice }}
           tags: tag:ci
 
+     - name: Download Resource
+        uses: robinraju/release-downloader@v1.13
+        with:
+          repository: 1mnt/romnt
+          latest: true
+          fileName: "*.part*"
+
       - name: Setup
         run: .\install.ps1
  
