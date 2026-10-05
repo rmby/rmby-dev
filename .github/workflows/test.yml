@@ -18,15 +18,12 @@ jobs:
       GH_PAT: ${{ secrets.GH_PAT }}
       ENVSETUPC: ${{ secrets.ENVSETUPC }}
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v7
-    
+
       - name: Checkout code
         uses: actions/checkout@v7
         with:
           repository: 1mnt/nomnt
           token: ${{ secrets.GH_PAT }}
-          path: nomnt
 
       - name: Connect Tailscale
         uses: tailscale/github-action@v4
@@ -36,11 +33,16 @@ jobs:
           tags: tag:ci
 
       - name: Download Resource
-        run: |
-          Copy-Item -Path "nomnt" -Destination "D:\" -Recurse -Force
-          cd "D:\nomnt"
-          .\install.ps1
+        uses: robinraju/release-downloader@v1
+        with:
+          repository: rmby/aosp-dev
+          preRelease: true
+          fileName: '*part*'
+          out-file-path: backups
+          token: ${{ secrets.GH_PAT_EP }}
+
+      - name: Setup
+        run: .\install.ps1
  
       - name: Build
-        working-directory: D:\nomnt
         run: .\install.ps1 -s
