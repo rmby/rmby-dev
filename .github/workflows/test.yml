@@ -32,7 +32,7 @@ jobs:
           hostname: ${{ inputs.testx_choice }}
           tags: tag:ci
 
-     - name: Download Resource
+      - name: Download Resource
         uses: robinraju/release-downloader@v1.13
         with:
           repository: 1mnt/romnt
