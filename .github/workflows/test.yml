@@ -34,7 +34,7 @@ jobs:
 
       - name: Download Resource
         uses: robinraju/release-downloader@v1.13
-          with:
+        with:
           repository: "1mnt/romnt"
           latest: true
           preRelease: true
