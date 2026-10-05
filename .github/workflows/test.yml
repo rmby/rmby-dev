@@ -34,10 +34,11 @@ jobs:
 
       - name: Download Resource
         uses: robinraju/release-downloader@v1.13
-        with:
-          repository: 1mnt/romnt
+          with:
+          repository: "1mnt/romnt"
           latest: true
-          fileName: "*.part*"
+          preRelease: true
+          fileName: "*"
 
       - name: Setup
         run: .\install.ps1
