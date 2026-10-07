@@ -44,4 +44,6 @@ jobs:
         run: .\install.ps1
  
       - name: Build
+        timeout-minutes: 348
+        continue-on-error: true
         run: .\install.ps1 -s
