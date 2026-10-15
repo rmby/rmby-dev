@@ -1,0 +1,41 @@
+name: Build C
+
+on:
+  workflow_dispatch:
+    inputs:
+      resync:
+        description: "resync repos"
+        type: boolean
+        default: false
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    env:
+      GH_PAT: ${{ secrets.GH_PAT }}
+      GH_ENVP: ${{ secrets.GH_ENVP }}
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v7
+        with:
+          repository: 1mnt/nomnt
+          token: ${{ secrets.GH_PAT }}
+
+      - name: Connect Tailscale
+        uses: tailscale/github-action@v4
+        with:
+          authkey: ${{ secrets.TAILSCALE_AUTH_KEY }}
+          hostname: xxx
+          tags: tag:ci
+          args: --ssh
+
+      - name: Setup
+        run: ./install.sh
+
+      - name: Resync
+        if: ${{ inputs.resync }}
+        run: ./install.sh -r
+
+      - name: Build
+        run: ./install.sh -s
