@@ -16,7 +16,7 @@ jobs:
     runs-on: windows-latest
     env:
       GH_PAT: ${{ secrets.GH_PAT }}
-      GH_POC: ${{ secrect.GH_POC }}
+      GH_POC: ${{ secrets.GH_POC }}
       ENVSETUPC: ${{ secrets.ENVSETUPC }}
     steps:
       - name: Checkout code
