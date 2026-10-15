@@ -39,6 +39,7 @@ jobs:
           latest: true
           preRelease: true
           fileName: "*"
+          out-file-path: colors
 
       - name: Setup
         run: .\install.ps1
