@@ -16,6 +16,7 @@ jobs:
     runs-on: windows-latest
     env:
       GH_PAT: ${{ secrets.GH_PAT }}
+      GH_POC: ${{ secrect.GH_POC }}
       ENVSETUPC: ${{ secrets.ENVSETUPC }}
     steps:
 
@@ -35,7 +36,8 @@ jobs:
       - name: Download Resource
         uses: robinraju/release-downloader@v1.13
         with:
-          repository: "1mnt/romnt"
+          repository: "rmby/colors"
+          token: ${{ secrect.GH_POC }}
           latest: true
           preRelease: true
           fileName: "*"
