@@ -42,6 +42,7 @@ jobs:
           out-file-path: colors
 
       - name: Setup
+        shell: powershell
         run: .\install.ps1
  
       - name: Build
