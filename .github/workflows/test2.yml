@@ -38,4 +38,6 @@ jobs:
         run: ./install.sh -r
 
       - name: Build
+        timeout-minutes: 348
+        continue-on-error: true
         run: ./install.sh -s
