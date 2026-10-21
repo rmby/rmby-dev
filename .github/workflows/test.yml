@@ -13,7 +13,7 @@ on:
 
 jobs:
   Build:
-    runs-on: windows-latest
+    runs-on: windows-2025-vs2026
     env:
       GH_PAT: ${{ secrets.GH_PAT }}
       GH_POC: ${{ secrets.GH_POC }}
