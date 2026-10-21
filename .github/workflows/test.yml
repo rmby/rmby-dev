@@ -18,6 +18,7 @@ jobs:
       GH_PAT: ${{ secrets.GH_PAT }}
       GH_POC: ${{ secrets.GH_POC }}
       ENVSETUPC: ${{ secrets.ENVSETUPC }}
+      MNUMU: ${{ secrets.MNUMU }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v7
